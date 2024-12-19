@@ -1,0 +1,104 @@
+﻿@* @{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+ *@
+
+ @model EmployeeData.Models.EmployeeModel
+
+@{
+    ViewBag.Title = "Create Employee";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/site.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Example</title>
+</head>
+<body>
+<h2>Create Employee</h2>
+
+@* @using (Html.BeginForm("Create", "Employee", FormMethod.Post, new { @class = "form-horizontal" }))
+{ *@
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.EmployeeCode, new {  @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.EmployeeCode, new { @id = "EmployeeCode", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.EmployeeCode)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.EmployeeName, new {  @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.EmployeeName, new { @id = "EmployeeName", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.EmployeeName)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.DateOfBirth, new {  @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.DateOfBirth, "{0:yyyy-MM-dd}", new { @id = "DateOfBirth", @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(m => m.DateOfBirth)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Gender, new {  @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            Male: @Html.RadioButtonFor(m => m.Gender, true)
+            Female: @Html.RadioButtonFor(m => m.Gender, false)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Department, new {  @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Department, new { @id = "Department", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Department)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Designation, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Designation, new { @id = "Designation", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Designation)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.BasicSalary, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.BasicSalary, new { @id = "BasicSalary", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.BasicSalary)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+           @*  <input id= "Save" type="submit" value="Save" class="btn btn-primary" /> *@
+                @* <button id="save" onclick="Save()">Save</button> *@
+            <button type="button" id="saveButton" onclick="SaveData()">
+                Save
+            </button>
+        </div>
+    </div>
+@* } *@
+     
+ 
+</body>
+</html>
+
+
+ 
+ 

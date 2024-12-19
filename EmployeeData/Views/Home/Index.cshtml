@@ -1,0 +1,43 @@
+﻿@* @{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
+@model IEnumerable<EmployeeData.Models.EmployeeModel>
+
+@{
+    ViewBag.Title = "Employee List";
+}
+
+<h2>Employee List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee Code</th>
+            <th>Employee Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>Designation</th>
+            <th>Basic Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EmployeeCode</td>
+                <td>@item.EmployeeName</td>
+                <td>@item.DateOfBirth.ToShortDateString()</td>
+                <td>@(item.Gender ? "Male" : "Female")</td>
+                <td>@item.Department</td>
+                <td>@item.Designation</td>
+                <td>@item.BasicSalary</td>
+            </tr>
+        }
+    </tbody>
+</table>
